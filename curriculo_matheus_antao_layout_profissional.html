@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo - Matheus Antão Souza da Silva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1a2b;
+    --ink-soft:#1a2d45;
+    --accent:#0f6e6e;
+    --accent-soft:#167e7e;
+    --accent-wash:#e8f4f3;
+    --text:#2a3444;
+    --muted:#5f6b7c;
+    --line:#d7e0e8;
+    --paper:#ffffff;
+    --sidebar:#f3f7f8;
+    --page:#c9d4dc;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, #e8f0f2 0%, transparent 55%),
+      linear-gradient(165deg, #d5e0e6 0%, var(--page) 45%, #b8c8d2 100%);
+    font-family:"Outfit", sans-serif;
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:28px auto;
+    background:var(--paper);
+    box-shadow:
+      0 1px 2px rgba(14,26,43,.04),
+      0 12px 28px rgba(14,26,43,.10),
+      0 40px 80px rgba(14,26,43,.12);
+    position:relative;
+    overflow:hidden;
+    border-radius:2px;
+  }
+
+  /* ── Header ── */
+  .header{
+    position:relative;
+    padding:8mm 14mm 7mm;
+    background:
+      linear-gradient(135deg, #0c1929 0%, #14324a 48%, #0f4a4a 100%);
+    color:#fff;
+    overflow:hidden;
+  }
+  .header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse 55% 90% at 100% 0%, rgba(34,160,150,.28), transparent 60%),
+      radial-gradient(ellipse 40% 70% at 0% 100%, rgba(20,80,120,.35), transparent 55%);
+    pointer-events:none;
+  }
+  .header::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:4px;
+    background:linear-gradient(90deg, #1aa89a, #3ecfc0 40%, #7eddd4 70%, transparent);
+  }
+  .header-inner{position:relative; z-index:1}
+  .brand-mark{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .brand-mark .bar{
+    width:28px;
+    height:3px;
+    background:#3ecfc0;
+    border-radius:2px;
+  }
+  .brand-mark span{
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.55);
+  }
+  h1{
+    margin:0;
+    font-family:"Fraunces", Georgia, serif;
+    font-size:26px;
+    font-weight:700;
+    line-height:1.06;
+    letter-spacing:-.02em;
+    color:#fff;
+    max-width:100%;
+  }
+  .headline{
+    margin-top:6px;
+    font-size:13.5px;
+    font-weight:600;
+    color:#7ee8dc;
+    letter-spacing:.01em;
+  }
+  .subline{
+    margin-top:4px;
+    color:rgba(255,255,255,.62);
+    font-size:10.3px;
+    font-weight:500;
+    line-height:1.4;
+    max-width:94%;
+  }
+  .contacts{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:8px;
+  }
+  .contact{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:4px 10px 4px 7px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;
+    font-size:10.2px;
+    font-weight:500;
+    color:rgba(255,255,255,.92);
+    backdrop-filter:blur(4px);
+  }
+  .contact svg{
+    width:13px;
+    height:13px;
+    flex-shrink:0;
+    opacity:.85;
+  }
+  .contact a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  /* ── Layout ── */
+  .content{
+    display:grid;
+    grid-template-columns:37% 63%;
+    min-height:216mm;
+  }
+  .sidebar{
+    padding:8mm 8mm 9mm 12mm;
+    background:
+      linear-gradient(180deg, var(--sidebar) 0%, #eef3f5 100%);
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .main{
+    padding:8mm 12mm 9mm 10mm;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .sidebar > .section, .main > .section{ margin-bottom:0 }
+  .sidebar > .rule, .main > .rule{ margin:0 }
+
+  /* ── Sections ── */
+  .section{
+    margin-bottom:14px;
+    break-inside:avoid;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 6px;
+    font-size:10.5px;
+    line-height:1;
+    font-weight:700;
+    color:var(--ink);
+    text-transform:uppercase;
+    letter-spacing:.13em;
+  }
+  .section-title .icon{
+    width:22px;
+    height:22px;
+    border-radius:7px;
+    background:var(--accent-wash);
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 22px;
+  }
+  .section-title .icon svg{
+    width:12px;
+    height:12px;
+  }
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg, var(--line), transparent);
+    margin:3px 0 8px;
+  }
+
+  /* ── Skills ── */
+  .skill{
+    padding:0 0 5px;
+    margin-bottom:5px;
+    border-bottom:1px solid rgba(215,224,232,.7);
+    font-size:10px;
+    line-height:1.4;
+    color:var(--muted);
+  }
+  .skill:last-child{border-bottom:0; margin-bottom:0; padding-bottom:0}
+  .skill b{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:2px;
+    letter-spacing:.01em;
+  }
+  .skill-row{
+    display:flex;
+    gap:9px;
+    align-items:flex-start;
+  }
+  .skill-dot{
+    width:6px;
+    height:6px;
+    margin-top:5px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-wash);
+    flex:0 0 6px;
+  }
+
+  /* ── Projects / Edu / Lang ── */
+  .project{
+    margin:0 0 6px;
+    padding:6px 9px;
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(215,224,232,.85);
+    border-left:3px solid var(--accent);
+    border-radius:0 8px 8px 0;
+    font-size:9.7px;
+    line-height:1.34;
+    color:var(--muted);
+  }
+  .project:last-child{margin-bottom:0}
+  .project b{
+    display:block;
+    color:var(--ink);
+    font-weight:700;
+    font-size:10.2px;
+    margin-bottom:2px;
+  }
+  .edu-card{
+    padding:8px 10px;
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(215,224,232,.85);
+    border-radius:10px;
+  }
+  .edu-title{
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .edu-school{
+    color:var(--accent);
+    font-weight:600;
+    font-size:10.4px;
+    margin-top:2px;
+  }
+  .edu-text{
+    font-size:9.8px;
+    line-height:1.4;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .lang{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:10.4px;
+    color:var(--text);
+    padding:5px 0;
+    border-bottom:1px solid rgba(215,224,232,.7);
+  }
+  .lang:last-child{border-bottom:0}
+  .lang b{font-weight:600; color:var(--ink)}
+  .lang-level{
+    font-size:9.5px;
+    font-weight:600;
+    color:var(--accent);
+    background:var(--accent-wash);
+    padding:3px 9px;
+    border-radius:999px;
+    letter-spacing:.02em;
+  }
+
+  /* ── Summary ── */
+  .summary{
+    font-size:10.3px;
+    line-height:1.48;
+    text-align:justify;
+    color:var(--text);
+    margin:0;
+  }
+
+  /* ── Jobs ── */
+  .job{
+    position:relative;
+    margin-bottom:7px;
+    padding:0 0 7px 14px;
+    border-bottom:1px solid var(--line);
+    break-inside:avoid;
+  }
+  .job:last-child{border-bottom:0; margin-bottom:0; padding-bottom:0}
+  .job::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:4px;
+    bottom:7px;
+    width:2px;
+    background:linear-gradient(180deg, var(--accent), transparent);
+    border-radius:2px;
+  }
+  .job:last-child::before{bottom:0}
+  .job-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:4px 12px;
+  }
+  .company{
+    font-family:"Fraunces", Georgia, serif;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .period-badge{
+    font-size:9.5px;
+    font-weight:600;
+    color:var(--accent);
+    background:var(--accent-wash);
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .role{
+    margin-top:3px;
+    color:var(--accent-soft);
+    font-size:10.6px;
+    font-weight:600;
+  }
+  .job ul{
+    margin:6px 0 0;
+    padding:0;
+    list-style:none;
+  }
+  .job li{
+    position:relative;
+    font-size:9.9px;
+    line-height:1.3;
+    margin-bottom:2px;
+    color:var(--text);
+    padding-left:12px;
+  }
+  .job li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:5px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--accent);
+    opacity:.55;
+  }
+
+  /* ── Diferenciais ── */
+  .differentiators{
+    padding-top:4px;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 11px;
+    font-size:9.8px;
+    font-weight:600;
+    color:var(--ink-soft);
+    background:linear-gradient(180deg, #ffffff, var(--accent-wash));
+    border:1px solid rgba(15,110,110,.22);
+    border-radius:999px;
+  }
+  .tag::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px rgba(15,110,110,.14);
+  }
+
+  .print-note{
+    position:absolute;
+    right:14px;
+    bottom:8px;
+    font-size:8px;
+    color:#a8b4c0;
+    letter-spacing:.04em;
+  }
+
+  @page{
+    size:A4;
+    margin:0 !important;
+  }
+  @media print{
+    html,body{
+      width:210mm;
+      height:297mm;
+      margin:0 !important;
+      padding:0 !important;
+      background:#fff !important;
+      overflow:hidden !important;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+    .sheet{
+      margin:0 !important;
+      box-shadow:none !important;
+      width:210mm !important;
+      height:297mm !important;
+      min-height:297mm !important;
+      max-height:297mm !important;
+      overflow:hidden !important;
+      border-radius:0 !important;
+      page-break-after:avoid;
+      page-break-inside:avoid;
+      break-inside:avoid;
+      break-after:avoid;
+    }
+    .content{
+      display:grid !important;
+      grid-template-columns:37% 63% !important;
+    }
+    .sidebar{
+      border-right:1px solid var(--line) !important;
+      border-bottom:0 !important;
+    }
+    .print-note{display:none !important}
+    .contact{backdrop-filter:none}
+    .header,.sidebar,.section-title .icon,.project,.edu-card,
+    .lang-level,.period-badge,.skill-dot,.job li::before,.tag,.contact{
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+  }
+  @media screen and (max-width:900px){
+    body{background:var(--page)}
+    .sheet{width:100%; margin:0; border-radius:0; box-shadow:none}
+    .content{grid-template-columns:1fr}
+    .sidebar{border-right:0; border-bottom:1px solid var(--line)}
+    h1{font-size:26px}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand-mark">
+        <span class="bar"></span>
+        <span>Currículo Profissional</span>
+      </div>
+      <h1>Matheus Antão Souza da Silva</h1>
+      <div class="headline">Analista de Desenvolvimento Full Stack</div>
+      <div class="subline">Sistemas Corporativos · Integrações com ERP · APIs · Banco de Dados · Automação de Processos</div>
+
+      <div class="contacts">
+        <div class="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Betim/MG
+        </div>
+        <div class="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (31) 99138-9002
+        </div>
+        <div class="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:matheusantaosilva18@gmail.com">matheusantaosilva18@gmail.com</a>
+        </div>
+        <div class="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <a href="https://github.com/Matheusanttao" target="_blank" rel="noopener">github.com/Matheusanttao</a>
+        </div>
+        <div class="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://www.matheusantao.com.br" target="_blank" rel="noopener">www.matheusantao.com.br</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <aside class="sidebar">
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </span>
+          Competências Técnicas
+        </h2>
+
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Front-end</b>React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS e Bootstrap</div>
+        </div>
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Back-end</b>Node.js, Express, C# e PHP</div>
+        </div>
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Banco de Dados</b>SQL Server, PostgreSQL e Supabase</div>
+        </div>
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Integrações</b>APIs REST, TOTVS/Protheus e sistemas corporativos</div>
+        </div>
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Ferramentas</b>Git, GitHub, Vercel, GitHub Actions e Cloudinary</div>
+        </div>
+        <div class="skill skill-row">
+          <span class="skill-dot"></span>
+          <div><b>Outros</b>Orientação a Objetos, debugging, manutenção de sistemas, modelagem de banco de dados e suporte técnico</div>
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          Projetos de Destaque
+        </h2>
+
+        <p class="project"><b>AMC Connect</b>
+        Sistema corporativo integrado ao TOTVS/Protheus para gestão de documentos, materiais, empenhos, aprovações e processos operacionais, com assistente inteligente para consultas.</p>
+
+        <p class="project"><b>Sistema para Geração e Gestão de Laudos</b>
+        Aplicação com transcrição, processamento de informações, revisão, histórico e geração de documentos.</p>
+
+        <p class="project"><b>Aplicações Web e Sistemas para Clientes</b>
+        Desenvolvimento de soluções personalizadas com React, TypeScript, Node.js, Supabase e SQL.</p>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </span>
+          Formação Acadêmica
+        </h2>
+        <div class="edu-card">
+          <div class="edu-title">Sistemas de Informação</div>
+          <div class="edu-school">PUC Minas — Campus Betim</div>
+          <div class="edu-text"><b>8º período</b> · Formação com foco em desenvolvimento de software, análise de sistemas e otimização de processos.</div>
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          Idiomas
+        </h2>
+        <div class="lang"><b>Português</b><span class="lang-level">Nativo</span></div>
+        <div class="lang"><b>Inglês</b><span class="lang-level">Básico</span></div>
+      </section>
+    </aside>
+
+    <main class="main">
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          Resumo Profissional
+        </h2>
+        <p class="summary">
+          Analista de Desenvolvimento Full Stack com experiência no desenvolvimento, manutenção e evolução de sistemas corporativos, aplicações internas e integrações com ERP. Atuação em projetos envolvendo front-end, back-end, APIs, bancos de dados, automação de processos e integração com TOTVS/Protheus. Experiência na análise de requisitos, desenvolvimento de novas funcionalidades, correção de falhas e melhoria contínua de sistemas. Perfil analítico, proativo e orientado à resolução de problemas e às necessidades do negócio.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </span>
+          Experiência Profissional
+        </h2>
+
+        <div class="jobs">
+        <article class="job">
+          <div class="job-head">
+            <div class="company">AMC Soluções</div>
+            <span class="period-badge">Maio/2026 — Atual</span>
+          </div>
+          <div class="role">Analista de Desenvolvimento Full Stack</div>
+          <ul>
+            <li>Desenvolvimento e manutenção de sistemas corporativos utilizados em processos de engenharia, produção e gestão.</li>
+            <li>Atuação no desenvolvimento e evolução do AMC Connect, integrado ao ambiente TOTVS/Protheus.</li>
+            <li>Desenvolvimento de funcionalidades de front-end, back-end e banco de dados.</li>
+            <li>Criação e manutenção de consultas, estruturas e regras de negócio em SQL Server.</li>
+            <li>Implementação de soluções para documentos, materiais, empenhos, aprovações e processos operacionais.</li>
+            <li>Desenvolvimento de módulos internos para automatização de processos e redução de atividades manuais.</li>
+            <li>Participação no desenvolvimento de um assistente inteligente para consultas operacionais no sistema.</li>
+            <li>Investigação e correção de bugs, análise de falhas e melhoria contínua das aplicações.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div class="company">Mapp Sistema</div>
+            <span class="period-badge">Julho/2025 — Maio/2026</span>
+          </div>
+          <div class="role">Desenvolvedor Full Stack</div>
+          <ul>
+            <li>Desenvolvimento de aplicações web e sistemas internos.</li>
+            <li>Criação e manutenção de funcionalidades front-end e back-end.</li>
+            <li>Integração de aplicações com APIs e bancos de dados.</li>
+            <li>Correção de bugs, manutenção e melhoria de desempenho das aplicações.</li>
+            <li>Desenvolvimento de interfaces modernas e responsivas.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div class="company">Interni SA</div>
+            <span class="period-badge">Outubro/2024 — Julho/2025</span>
+          </div>
+          <div class="role">Analista Júnior de Suporte</div>
+          <ul>
+            <li>Experiência com o sistema Datasul TOTVS.</li>
+            <li>Atuação em redes, servidores e infraestrutura de TI.</li>
+            <li>Manutenção e configuração de sistemas e equipamentos.</li>
+            <li>Suporte técnico e atendimento a usuários.</li>
+          </ul>
+        </article>
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="section differentiators">
+        <h2 class="section-title">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Diferenciais
+        </h2>
+        <div class="tags">
+          <span class="tag">Perfil analítico</span>
+          <span class="tag">Proatividade</span>
+          <span class="tag">Resolução de problemas</span>
+          <span class="tag">Foco no negócio</span>
+          <span class="tag">Melhoria contínua</span>
+          <span class="tag">Trabalho em equipe</span>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="print-note">Otimizado para impressão A4 · Ctrl+P</div>
+</div>
+</body>
+</html>
